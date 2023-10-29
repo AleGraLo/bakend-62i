@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Notas sobre creación de Backend
 
 - Creamos en la carpeta `models` el archivo `server.js` que contiene la clase donde definiremos los path, las rutas, los middlewares y el listen
@@ -31,3 +32,7 @@
 
 - Este archivo lo utilizamos para especificar que carpetas o archivos no deben tener un seguimiento de Git ni subirse a Github.
   - Agregamos la carpeta `node_modules` y el archivo `.env`
+=======
+# bakend-62i
+Práctica del modulo 4. Backend del proyecto pagina web.
+>>>>>>> 8d4d1fadba025797a5b194ac4a3a109363a2feec
