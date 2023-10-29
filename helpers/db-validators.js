@@ -1,5 +1,7 @@
 const Role = require("../models/role");
 const Usuario = require("../models/usuario");
+const Categoria = require("../models/categoria");
+const Producto = require("../models/producto");
 
 const esRoleValido = async (role = "USER_ROLE") => {
   const existeRole = await Role.findOne({ role });
@@ -18,14 +20,32 @@ const emailExiste = async (email) => {
 
 const existeUsuarioPorId = async (id) => {
   const existeUsuario = await Usuario.findById(id);
-
   if (!existeUsuario) {
     throw new Error(`El id ${id} NO existe`);
   }
-
   //Si el usuario existe verifico su estado
   if (!existeUsuario.state) {
-    throw new Error(`El usuario ${existeUsuario.name} ya está inactivo`);
+    throw new Error(`El usuario ${existeUsuario.name} está inactivo`);
+  }
+};
+
+//validar categoria por id
+const categoriaExiste = async (id) => {
+  const existeCategoria = await Categoria.findById(id);
+  if (!existeCategoria) {
+    throw new Error(`El id ${id} no existe en la BD`);
+  }
+
+  if (!existeCategoria.estado) {
+    throw new Error(`La categoría ${existeCategoria.nombre} está inactiva`);
+  }
+};
+
+//validar Producto por id
+const productoExiste = async (id) => {
+  const existeProducto = await Producto.findById(id);
+  if (!existeProducto) {
+    throw new Error(`El id ${id} no existe en la BD`);
   }
 };
 
@@ -33,4 +53,6 @@ module.exports = {
   esRoleValido,
   emailExiste,
   existeUsuarioPorId,
+  categoriaExiste,
+  productoExiste,
 };
