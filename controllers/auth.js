@@ -47,6 +47,16 @@ const login = async (req = request, res = response) => {
   }
 };
 
+const obtenerID = (req = request, res = response) => {
+  const { id, role } = req.usuario;
+
+  res.json({
+    id,
+    role,
+  })
+}
+
 module.exports = {
   login,
+  obtenerID,
 };

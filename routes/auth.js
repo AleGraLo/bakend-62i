@@ -4,7 +4,9 @@ const { validarCampos } = require("../middlewares/validar-campos");
 
 //importar el controlador
 const { login } = require("../controllers/auth");
+
 const router = Router();
+
 
 router.post(
   "/login",
